@@ -25,7 +25,7 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cartId;
 
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@ToString.Exclude
 	@JsonIgnore
 	private User user;

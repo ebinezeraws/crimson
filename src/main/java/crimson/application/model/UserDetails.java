@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,7 +49,7 @@ public class UserDetails {
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH ,CascadeType.MERGE})
 	private Address address;
 	
-	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH ,CascadeType.MERGE})
+	@OneToOne(fetch=FetchType.LAZY)
 	@ToString.Exclude
 	@JsonIgnore
 	private User user;
