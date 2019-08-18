@@ -134,11 +134,11 @@
 									</c:if>
 									<c:if test="${!exists}">
 										<div class="add-cart-hover">
-											<security:authorize access="!hasRole('ROLE_ADMIN')">
+											<security:authorize access="hasRole('ROLE_USER')">
 												<a href="${contextPath}/user/addtocart/${prod.id}"><h6>Add
 														to cart</h6> <i class="flaticon-3-signs" aria-hidden="true"></i></a>
 											</security:authorize>
-											<security:authorize access="hasRole('ROLE_ADMIN')">
+											<security:authorize access="!hasRole('ROLE_USER')">
 												<a href="${contextPath}/admin/editproduct/${prod.id}"><h6>Edit
 														Product</h6> <i class="flaticon-3-signs" aria-hidden="true"></i></a>
 											</security:authorize>
