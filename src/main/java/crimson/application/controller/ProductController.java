@@ -178,25 +178,34 @@ public class ProductController {
 			return "editproduct";
 		}
 
-		product.getProductDescriptions().forEach((productDescription) -> {
-			productDescription.setProduct(product);
-		});
+		if (product.getProductDescriptions() != null) {
+			product.getProductDescriptions().forEach((productDescription) -> {
+				productDescription.setProduct(product);
+			});
+		}
+		if (product.getProductApplications() != null) {
+			product.getProductApplications().forEach((productApplication) -> {
+				productApplication.setProduct(product);
+			});
+		}
 
-		product.getProductApplications().forEach((productApplication) -> {
-			productApplication.setProduct(product);
-		});
+		if (product.getProductFeatures() != null) {
+			product.getProductFeatures().forEach((productFeature) -> {
+				productFeature.setProduct(product);
+			});
+		}
 
-		product.getProductFeatures().forEach((productFeature) -> {
-			productFeature.setProduct(product);
-		});
+		if (product.getProductSpecifications() != null) {
+			product.getProductSpecifications().forEach((productSpecification) -> {
+				productSpecification.setProduct(product);
+			});
+		}
 
-		product.getProductSpecifications().forEach((productSpecification) -> {
-			productSpecification.setProduct(product);
-		});
-
-		product.getPackagings().forEach((packaging) -> {
-			packaging.setProduct(product);
-		});
+		if (product.getPackagings() != null) {
+			product.getPackagings().forEach((packaging) -> {
+				packaging.setProduct(product);
+			});
+		}
 
 		if (productService.update(product) == null) {
 			model.addAttribute("update_status", false);

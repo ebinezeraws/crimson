@@ -60,14 +60,9 @@ public class HomeController {
 	@GetMapping("/")
 	public String indexPage(Model model, @RequestParam(name = "login", required = false) String login,
 			HttpServletRequest request, Principal principal, HttpSession session) {
-
 		model.addAttribute("user", new User());
-
-		model.addAttribute("categories", categoryService.getCategories());
-
-		System.out.println(principal);
 		if (principal != null) {
-			System.out.println(principal);
+			model.addAttribute("categories", categoryService.getCategories());
 			User user = null;
 			user = userService.getUserByEmail(principal.getName());
 			if (user != null) {

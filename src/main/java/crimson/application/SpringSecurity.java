@@ -41,8 +41,9 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors();
 		http.csrf().disable().authorizeRequests().antMatchers("/user/**").hasRole("USER").antMatchers("/admin/**")
-				.hasAnyRole("ADMIN", "OWNER").antMatchers("/owner/**").hasRole("OWNER").antMatchers("/profile**")
+				.hasAnyRole("ADMIN", "OWNER").antMatchers("/owner/**").hasRole("OWNER").antMatchers("/profile/**")
 				.hasAnyRole("ADMIN", "USER").antMatchers("/orders/**").hasAnyRole("ADMIN", "OWNER", "USER")
+				.antMatchers("/products","/categories").authenticated()
 				.and().formLogin().loginPage("/?login").usernameParameter("email").passwordParameter("password")
 				.loginProcessingUrl("/processlogin").defaultSuccessUrl("/", true).failureUrl("/?login=error").and()
 				.logout().logoutUrl("/logout").logoutSuccessUrl("/?login");
