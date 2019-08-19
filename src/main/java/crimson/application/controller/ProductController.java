@@ -154,7 +154,7 @@ public class ProductController {
 	public String edidProductFormPage(@PathVariable("id") Long id, Model model) {
 		Product product = productService.getProduct(id);
 
-		System.out.println("ProductValue: " + product);
+		model.addAttribute("categories", categoryService.getCategories());
 
 		if (product == null) {
 			model.addAttribute("editproduct_error", "Product is not available");
@@ -170,10 +170,14 @@ public class ProductController {
 			HttpServletRequest request) {
 
 		if (errors.hasErrors()) {
+			model.addAttribute("product", product);
+			model.addAttribute("categories", categoryService.getCategories());
 			return "editproduct";
 		}
 		Map<String, String> error_messages = validation.productUpdateValidation(product);
 		if (error_messages.size() > 0) {
+			model.addAttribute("product", product);
+			model.addAttribute("categories", categoryService.getCategories());
 			model.addAttribute("error_messages", error_messages);
 			return "editproduct";
 		}
@@ -208,6 +212,8 @@ public class ProductController {
 		}
 
 		if (productService.update(product) == null) {
+			model.addAttribute("product", product);
+			model.addAttribute("categories", categoryService.getCategories());
 			model.addAttribute("update_status", false);
 			return "editproduct";
 		}
