@@ -108,17 +108,25 @@ public class HomeController {
 			HttpSession session) {
 
 		model.addAttribute("user", new User());
-		model.addAttribute("products", productService.getActiveProducts());
 		model.addAttribute("productsmenu", "active");
-		model.addAttribute("cartStatus", cartStatus);
 		model.addAttribute("disable", disableStatus);
 
 		if (session.getAttribute("reg_user") != null) {
-			Cart cart = userService.getUserByEmail((((User) session.getAttribute("reg_user")).getEmail())).getCart();
-			if (cart != null) {
-				System.out.println("cart is existed");
-				session.setAttribute("cart_count", cart.getQuantity());
-				model.addAttribute("cart", cart);
+			User user = ((User) session.getAttribute("reg_user"));
+
+			if (user.getRole().equals("ROLE_ADMIN")) {
+				model.addAttribute("products", productService.getProducts(user.getAdminDetails().getCategory()));
+			} else {
+				model.addAttribute("products", productService.getActiveProducts());
+				if (user.getRole().equals("ROLE_USER")) {
+					model.addAttribute("cartStatus", cartStatus);
+					Cart cart = userService.getUserByEmail(user.getEmail()).getCart();
+					if (cart != null) {
+						System.out.println("cart is existed");
+						session.setAttribute("cart_count", cart.getQuantity());
+						model.addAttribute("cart", cart);
+					}
+				}
 			}
 
 		}

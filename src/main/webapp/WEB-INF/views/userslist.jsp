@@ -28,9 +28,6 @@
 		<%@include file="searchmenu.jsp"%>
 		<hr>
 		<div class="container" style="margin-top: 20px;">
-			<c:if test="${id == false}">
-				<span class='error_msg'>Employee is not existed</span>
-			</c:if>
 			<table id="adminsListTable"
 				class="table table-striped table-bordered">
 				<thead>
@@ -38,29 +35,18 @@
 						<th>Username</th>
 						<th>Email</th>
 						<th>Mobile</th>
+						<th>Company</th>
 						<th>Category</th>
-						<th></th>
-						<th></th>
 					</tr>
 				</thead>
-				<c:forEach items="${admins}" var="admin">
+				<c:forEach items="${users}" var="user">
 					<tbody>
 						<tr>
-							<td>${admin.username}</td>
-							<td>${admin.email}</td>
-							<td>${admin.mobile}</td>
-							<td>${admin.adminDetails.category.categoryName}</td>
-							<c:if test="${admin.isActive==true}">
-								<td><a
-									href="${contextPath}/owner/editadmin/${admin.userId}"
-									class="btn btn-warning">Edit</a></td>
-								<td><a
-									href="${contextPath}/owner/disableadmin/${admin.userId}"
-									class="btn btn-danger">Disable</a></td>
-							</c:if>
-							<c:if test="${admin.isActive==false}">
-								<p>Admin is disabled</p>
-							</c:if>
+							<td>${user.username}</td>
+							<td>${user.email}</td>
+							<td>${user.mobile}</td>
+							<td>${user.userDetails.companyName}</td>
+							<td>${user.userDetails.userCategory.categoryName}</td>
 						</tr>
 					</tbody>
 				</c:forEach>

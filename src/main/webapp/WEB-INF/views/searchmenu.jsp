@@ -5,7 +5,8 @@
 			class="img-responsive" /></a>
 	</div>
 	<!--menu-->
-	<div class="container-fluid menu" style="display:flex;justify-content: flex-end;">
+	<div class="container-fluid menu"
+		style="display: flex; justify-content: flex-end;">
 		<security:authorize access="!isAnonymous()">
 			<nav class="navbar navbar-default">
 
@@ -27,13 +28,18 @@
 
 						<security:authorize
 							access="hasRole('ROLE_ADMIN')||hasRole('ROLE_OWNER')">
+
 							<security:authorize access="hasRole('ROLE_OWNER')">
-								<li class="menuitem ${productsmenu}"><a
-									href="${contextPath}/owner/">Add Admin</a></li>
 								<li class="menuitem ${categorymenu}"><a
 									href="${contextPath}/category">PRODUCT CATEGORY</a></li>
 								<li class="menuitem ${usercategorymenu}"><a
 									href="${contextPath}/usercategory">USER CATEGORY</a></li>
+								<li class="menuitem ${productsmenu}"><a
+									href="${contextPath}/owner/">ADD ADMIN</a></li>
+								<li class="menuitem ${adminlist}"><a
+									href="${contextPath}/owner/admins">ADMIN LIST</a></li>
+								<li class="menuitem ${userslist}"><a
+									href="${contextPath}/owner/users">USERS LIST</a></li>
 							</security:authorize>
 							<li class="menuitem ${productsmenu}"><a
 								href="${contextPath}/products">PRODUCTS</a></li>
@@ -44,7 +50,7 @@
 						</security:authorize>
 						<security:authorize access="hasRole('ROLE_USER')">
 							<li class='menuitem ${aboutusmenu}'><a
-								href="${contextPath}/aboutus">About Us</a></li>
+								href="${contextPath}/aboutus">ABOUT US</a></li>
 							<li class="menuitem ${categorymenu}"><a
 								href="${contextPath}/categories">CATEGORY</a></li>
 							<li class="menuitem ${productsmenu}"><a

@@ -75,9 +75,9 @@ public class OwnerController {
 				return "ownerpage";
 			}
 		}
-		
+
 		user.getAdminDetails().setUser(user);
-		
+
 		if (userService.saveOrUpdate(user) == null) {
 			return "redirect:/owner?status=false";
 		}
@@ -92,7 +92,8 @@ public class OwnerController {
 		if (id != null) {
 			model.addAttribute("id", id);
 		}
-
+		model.addAttribute("adminlist", "active");
+		model.addAttribute("user", new User());
 		model.addAttribute("admins", userService.getAllUserByRole("ROLE_ADMIN"));
 		return "adminlist";
 	}
@@ -140,5 +141,13 @@ public class OwnerController {
 
 		return "redirect:/owner/admins";
 
+	}
+	
+	@GetMapping("/users")
+	public String users(Model model) {
+		model.addAttribute("userslist", "active");
+		model.addAttribute("user", new User());
+		model.addAttribute("users", userService.getAllUserByRole("ROLE_USER"));
+		return "userslist";
 	}
 }

@@ -76,7 +76,7 @@ due date
 	 padding:1%";><span style="font-size:10px;font-family:verdana;"><a href="http://crimsontrading.in/order/${orderId}">VIEW INVOICE</a></span></button><br><br><hr>
 	<p style="font-size:13px;padding-left:5%";>Regards<br>
   Project Manager <br>
-	 Crimson Trading </p>
+	 Aadvi </p>
 	</div>
   </div>
   <br>
