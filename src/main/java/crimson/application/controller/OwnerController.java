@@ -113,6 +113,21 @@ public class OwnerController {
 
 	}
 
+	@GetMapping("/activateadmin/{userId}")
+	public String adminActivate(@PathVariable("userId") Long userId, Model model) {
+		User user = userService.getUserById(userId);
+		if (user != null) {
+			user.setIsActive(true);
+			userService.saveOrUpdate(user);
+		} else {
+			model.addAttribute("error_message", "User is not existed");
+			return "adminlist";
+		}
+
+		return "redirect:/owner/admins";
+
+	}
+
 	@GetMapping("/editadmin/{userId}")
 	public String editAdminDetails(@PathVariable("userId") Long userId, Model model) {
 		User user = userService.getUserById(userId);
@@ -142,7 +157,7 @@ public class OwnerController {
 		return "redirect:/owner/admins";
 
 	}
-	
+
 	@GetMapping("/users")
 	public String users(Model model) {
 		model.addAttribute("userslist", "active");

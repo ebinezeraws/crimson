@@ -56,11 +56,14 @@
 									class="btn btn-warning">Edit</a></td>
 								<td><a
 									href="${contextPath}/owner/disableadmin/${admin.userId}"
-									class="btn btn-danger">Disable</a></td>
+									class="btn btn-danger">Disable</a>
 							</c:if>
 							<c:if test="${admin.isActive==false}">
-								<p>Admin is disabled</p>
+								<a
+									href="${contextPath}/owner/activateadmin/${admin.userId}"
+									class="btn btn-info">Active</a>
 							</c:if>
+							</td>
 						</tr>
 					</tbody>
 				</c:forEach>
