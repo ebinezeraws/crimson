@@ -70,7 +70,7 @@
             </section>
             <section id="mail-regards">
                 <p>Regards,<br>
-                Crimson Team.</p>
+                Aadvi Team.</p>
             </section>
         </section>
     </section>

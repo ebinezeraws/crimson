@@ -30,7 +30,7 @@ public class ForgetEmail implements Email {
 									+ "'>Reset Password</a>\r\n" + "And Enter the code below:" + content + "\r\n"
 									+ "<p>If you did not request to have your password reset, you can safely ignore this email. Rest assured your customer account is safe. </p>\r\n"
 									+ "<p>If clicking the link doesn't seem to work, you can copy and paste the link into your browser's address window, or retype it there. Once you have returned to crimsontrading.in, we will give instructions for resetting your password.</p>\r\n"
-									+ "\r\n" + "<p>Regards, </p>\r\n" + "<p>Crimson Team</p>\r\n" + "",
+									+ "\r\n" + "<p>Regards, </p>\r\n" + "<p>Aadvi Team</p>\r\n" + "",
 							true);
 				}
 			});

@@ -38,15 +38,15 @@ public class RegisterEmail implements Email {
 					MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
 					messageHelper.setTo(new String[] {toEmail, adminEmail});
 					messageHelper.setText("<img style='float:right' src='cid:myimage'>" + "<div id=”mail”>\r\n"
-							+ "<h1>Welcome to Crimson Trading<h1>\r\n" + "\r\n" + "<h5>Hi, " + user.getUsername()
-							+ ",</h5>\r\n" + "\r\n" + "<h3>Welcome to Crimson Trading!!!</h3>\r\n"
-							+ " <p>Crimson products are shipped to worldwide markets including India, Singapore, Europe, USA, Middle East and Africa.</p>\r\n"
+							+ "<h1>Welcome to Aadvi Trading<h1>\r\n" + "\r\n" + "<h5>Hi, " + user.getUsername()
+							+ ",</h5>\r\n" + "\r\n" + "<h3>Welcome to Aadvi Trading!!!</h3>\r\n"
+							+ " <p>Aadvi products are shipped to worldwide markets including India, Singapore, Europe, USA, Middle East and Africa.</p>\r\n"
 							+ "		\r\n" + "\r\n"
 							+ "<p>Happy Shopping… <h3We look forward to placing your first order soon. </h3></p>\r\n"
 							+ "\r\n" + "<h4>Regards</h4>\r\n" + "<h5>Crimson Team</h5>\r\n" + "\r\n" + "</div>\r\n"
 							+ "", true);
 					messageHelper.addInline("myimage", new UrlResource(contextPath + "/resources/img/index/logo.png"));
-					messageHelper.setSubject("Crimson Registration");
+					messageHelper.setSubject("Aadvi Registration");
 				}
 
 			});
