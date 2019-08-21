@@ -118,6 +118,8 @@ public class APISignupAndLoginController {
 
 		userDetailsService.save(userDetails);
 
+		regEmailService.send(user.getEmail(), "", "http://" + request.getServerName() + ":" + request.getServerPort());
+
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
